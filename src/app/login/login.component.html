@@ -2,6 +2,9 @@
   <div class="page-header bg-dark text-white p-1 mb-2">
     <h1>Controle d'accés</h1>
   </div>
+  <div  *ngIf="invalidLogin" class="alert alert-danger shadow-none p-3 text-center font-weight-bold">
+    <span> Nom d'utilisateur ou mot de passe est incorrecte.</span>
+  </div>
   <div class="row">
     <div class="col-md-12 bg-white">
       <form (ngSubmit)="checkLogin()" #f="ngForm">

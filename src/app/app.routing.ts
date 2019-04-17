@@ -7,9 +7,10 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGaurdService } from './service/auth-gaurd.service';
+import { AuthLoginService } from './service/auth-login.service';
 
 const routes: Routes =[
-  { path: '', component: LoginComponent, canDeactivate:[AuthGaurdService] },
+  { path: 'login', component: LoginComponent, canActivate:[AuthLoginService]},
   { path: 'logout', component: LogoutComponent },
   { path: 'dashboard', redirectTo: 'dashboard', pathMatch: 'full', }, 
   { path: '', component: AdminLayoutComponent, canActivate:[AuthGaurdService],

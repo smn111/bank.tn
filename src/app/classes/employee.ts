@@ -1,5 +1,5 @@
 
-export class Employees {
+export class Employee {
     numEmployee: number;
     nom: string;
     prenom: string;
