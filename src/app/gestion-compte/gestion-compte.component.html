@@ -1,0 +1,102 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10 offset-1" >
+        <div class="card">
+
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Ajouter Nouvelle Compte</h4>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="container" >
+                <div class="row">
+                  <p class="card-category col-md-12">Informations de client</p>
+                  <hr>
+                  <div class="form-group">
+                    <label class="ml-3 mr-3">S'agit ils d'un nouveau client ?</label>
+                    <div  class="btn-group" role="group" aria-label="Basic example" >
+                      <button name="client-exist" type="button" class="btn btn-danger"  (click)="exist()">Oui</button>
+                      <button name="client-exist" type="button" class="btn btn-secondary" (click)="notExist()">Non</button>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-6" *ngIf="!client_exist">
+                    <mat-form-field  style="border-radius: 0px" appearance="outline">
+                      <mat-label>Nom Client</mat-label>
+                      <input matInput placeholder="Placeholder">
+                      <mat-hint>Hint</mat-hint>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group col-md-6" *ngIf="client_exist">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Prénom</mat-label>
+                      <input matInput placeholder="Placeholder">
+                      <mat-hint>Hint</mat-hint>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group col-md-6" *ngIf="client_exist">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Outline form field</mat-label>
+                      <input matInput placeholder="Placeholder">
+                      <mat-hint>Hint</mat-hint>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-6" *ngIf="client_exist">
+                    <mat-form-field appearance="outline">
+                      <mat-label>CIN</mat-label>
+                      <input matInput placeholder="Placeholder">
+                      <mat-hint>Hint</mat-hint>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group col-md-6" >
+                    <mat-form-field appearance="outline">
+                      <mat-label>E-mail</mat-label>
+                      <input matInput placeholder="Placeholder">
+                      <mat-hint>Hint</mat-hint>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group col-md-6" >
+                  <mat-form-field appearance="outline">
+                    <mat-label>Outline form field</mat-label>
+                    <input matInput placeholder="Placeholder">
+                    <mat-hint>Hint</mat-hint>
+                  </mat-form-field>
+                </div> <div class="form-group col-md-6" *ngIf="client_exist">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Outline form field</mat-label>
+                    <input matInput placeholder="Placeholder">
+                    <mat-hint>Hint</mat-hint>
+                  </mat-form-field>
+                </div> <div class="form-group col-md-6" *ngIf="client_exist">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Outline form field</mat-label>
+                    <input matInput placeholder="Placeholder">
+                    <mat-hint>Hint</mat-hint>
+                  </mat-form-field>
+                </div> <div class="form-group col-md-6" *ngIf="client_exist">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Outline form field</mat-label>
+                    <input matInput placeholder="Placeholder">
+                    <mat-hint>Hint</mat-hint>
+                  </mat-form-field>
+                </div>
+
+
+
+
+                </div>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

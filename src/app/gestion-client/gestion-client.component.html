@@ -1,0 +1,72 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" >
+        <div class="card">
+
+              <div class="card-header card-header-danger">
+                <h4 class="card-title ">Gestion Des Clients</h4>
+                <br>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+
+                    <thead class="text-light" style="background-color:rgba(239,83,80,0.5) ;" >
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>Date de naissance</th>
+                      <th>Nature</th>
+                      <th>Actions</th>
+                    </thead>
+
+                    <tbody>
+                    <tr *ngFor="let client of CLIENTS">
+                      <td>{{client.nom}}</td>
+                      <td>{{client.prenom}}</td>
+                      <td>{{client.dateNais}}</td>
+                      <td>{{client.nature}}</td>
+                      <td class="td-actions text-right">
+                      <button mat-raised-button
+                              type="button"
+                              matTooltip="Détails"
+                              [matTooltipPosition]="'above'"
+                              class="btn btn-primary  btn-link btn-just-icon"
+                              (click)="openDetailsDialog(client)">
+                        <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                      </button>
+                      <button mat-raised-button
+                              type="button"
+                              matTooltip="Modifier"
+                              [matTooltipPosition]="'above'"
+                              class="btn btn-primary btn-link btn btn-just-icon"
+                              (click)="openPatchDialog(client.numClient)">
+                        <i class="material-icons">
+                          edit
+                        </i>
+                      </button>
+                      <button mat-raised-button
+                              type="button"
+                              matTooltip="Supprimer"
+                              [matTooltipPosition]="'above'"
+                              class="btn btn-danger btn-link btn-sm btn-just-icon"
+                              (click)="openDeleteDialog(client.numClient)">
+                        <i class="material-icons">
+                          close
+                        </i>
+                      </button>
+                    </td>
+                    </tr>
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+  </div>
+</div>
+
+
