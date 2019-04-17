@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -22,6 +23,9 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthentificationService } from './service/authentification.service';
 
 @NgModule({
   imports: [
@@ -29,6 +33,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     FormsModule,
     HttpModule,
     ComponentsModule,
+    HttpClientModule,
     RouterModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
@@ -38,9 +43,11 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    LoginComponent,
+    LogoutComponent,
 
   ],
-  providers: [],
+  providers: [AuthentificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

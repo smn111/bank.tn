@@ -4,15 +4,15 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGaurdService } from './service/auth-gaurd.service';
 
 const routes: Routes =[
-  {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-  }, {
-    path: '',
-    component: AdminLayoutComponent,
+  { path: '', component: LoginComponent, canDeactivate:[AuthGaurdService] },
+  { path: 'logout', component: LogoutComponent },
+  { path: 'dashboard', redirectTo: 'dashboard', pathMatch: 'full', }, 
+  { path: '', component: AdminLayoutComponent, canActivate:[AuthGaurdService],
     children: [
         {
       path: '',
