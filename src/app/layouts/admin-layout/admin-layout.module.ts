@@ -21,8 +21,6 @@ import { TypographyComponent } from '../../typography/typography.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
-
-
 import {MatDialogModule} from '@angular/material/dialog';
 import {
   MatButtonModule,
@@ -33,7 +31,8 @@ import {
   MatSelectModule,
   MatButtonToggleModule,
   MatIconModule,
-
+  MatNativeDateModule,
+  MatDatepickerModule
 } from '@angular/material';
 @NgModule({
   imports: [
@@ -49,6 +48,8 @@ import {
     MatButtonToggleModule,
     MatIconModule,
     MatDialogModule,
+    MatDatepickerModule,MatNativeDateModule
+
   ],
   declarations: [
     GestionClientComponent,

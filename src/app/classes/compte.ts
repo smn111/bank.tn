@@ -1,3 +1,3 @@
-export interface adresse {
+export class Compte {
 
 }
