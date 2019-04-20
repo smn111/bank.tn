@@ -3,12 +3,12 @@ export class Client {
     nom: string ;
     prenom: string ;
     cin: number ;
-    dateNais: string ;
+    dateNais: Date ;
     fonction:string ;
     telephone: number ;
     email: string ;
     codeSecret: string;
-    dateInscription: string ;
+    dateInscription: Date ;
     nature: string ;
     sexe: string ;
 }

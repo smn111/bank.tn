@@ -10,7 +10,7 @@ export class ClientsService {
 
   constructor(private http :HttpClient) { }
 
-  getclients() : Observable<Client[]>{
+  getClients() : Observable<Client[]>{
     return this.http.get<Client[]>('http://localhost:9999/client-service/clients') ;
   }
 
@@ -18,11 +18,10 @@ export class ClientsService {
     return this.http.delete('http://localhost:9999/client-service/clients/' + id);
   }
 
-  // postFavorites(dishids: any) {
-  //   return this.http.post(baseURL + 'favorites/', dishids)
-  //       .pipe(catchError(error => { return this.processHTTPMsgService.handleError(error); }));
-  // }
-  //
+  postClient(client: Client) {
+    return this.http.post('http://localhost:9999/client-service/clients', client) ;
+  }
+
   // isFavorite(id: string) {
   //   return this.http.get(baseURL + 'favorites/' + id)
   //       .pipe(catchError(error => { return this.processHTTPMsgService.handleError(error); }));

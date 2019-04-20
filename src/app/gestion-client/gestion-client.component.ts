@@ -18,7 +18,7 @@ export class GestionClientComponent implements OnInit  {
   }
 
   ngOnInit() {
-    this.clientsService.getclients().subscribe(
+    this.clientsService.getClients().subscribe(
         (response) => this.CLIENTS = response,
         (error) => console.log('error')
     )
@@ -27,17 +27,17 @@ export class GestionClientComponent implements OnInit  {
 
   openDetailsDialog(cl : Client): void {
     const dialogRef = this.dialog.open(DetailsclientComponent, {
-      width: '600px',data: cl
+      width: '800px',data: cl
     });
   }
 
   openDeleteDialog(id : number): void {
     const dialogRef = this.dialog.open(SupprimerclientComponent, {
-      width: '600px',data: id
+      width: '800px',data: id
     });
     dialogRef.afterClosed().subscribe(
         (res => {
-          this.clientsService.getclients().subscribe(
+          this.clientsService.getClients().subscribe(
               (response) => this.CLIENTS = response,
               (error) => console.log('error')
           )
@@ -48,11 +48,11 @@ export class GestionClientComponent implements OnInit  {
 
   openPatchDialog(id : number): void {
     const dialogRef = this.dialog.open(ModifierClientComponent, {
-      width: '600px',data: id
+      width: '1000px',data: id
     });
     dialogRef.afterClosed().subscribe(
         (res => {
-          this.clientsService.getclients().subscribe(
+          this.clientsService.getClients().subscribe(
               (response) => this.CLIENTS = response,
               (error) => console.log('error')
           )

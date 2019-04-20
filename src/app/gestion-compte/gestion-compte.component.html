@@ -8,7 +8,7 @@
             <h4 class="card-title">Ajouter Nouvelle Compte</h4>
           </div>
           <div class="card-body">
-            <form>
+            <form (ngSubmit)="onSubmit(form)" #form="ngForm">
 
               <div class="container" >
                 <div class="row">
@@ -26,17 +26,17 @@
 
                 <!-- Informations compte -->
                 <div class="card pr-4 pl-4 mb-4" >
-                  <div class="card-header card-header-danger">
+                  <div class="card-header card-header-primary">
                     <h4 class="card-title">Compte</h4>
                   </div>
 
                   <div class="card-body row mt-4" >
 
                     <div class="form-group col-md-6">
-                      <mat-form-field appearance="outline">
-                        <mat-select placeholder="Type de compte">
-                          <mat-option value="option">Courant</mat-option>
-                          <mat-option value="option">Epargne</mat-option>
+                      <mat-form-field  appearance="outline">
+                        <mat-select ngModel name="type_compte" placeholder="Type de compte">
+                          <mat-option value=1>Courant</mat-option>
+                          <mat-option value=0>Epargne</mat-option>
                         </mat-select>
                         <mat-hint align="end"></mat-hint>
                       </mat-form-field>
@@ -45,7 +45,7 @@
                     <div class="form-group col-md-6" >
                       <mat-form-field appearance="outline">
                         <mat-label>Solde initial</mat-label>
-                        <input matInput placeholder="Nature">
+                        <input ngModel name="solde" matInput placeholder="Nature" type="number">
                         <mat-hint></mat-hint>
                       </mat-form-field>
                     </div>
@@ -63,7 +63,7 @@
                   <div class="form-group col-md-6" >
                     <mat-form-field  style="border-radius: 0px" appearance="outline">
                       <mat-label>Nom</mat-label>
-                      <input matInput placeholder="Nom">
+                      <input ngModel name="nom"  matInput placeholder="Nom">
                       <mat-hint></mat-hint>
                     </mat-form-field>
                   </div>
@@ -72,7 +72,7 @@
                   <div class="form-group col-md-6" >
                     <mat-form-field appearance="outline">
                       <mat-label>Prénom</mat-label>
-                      <input matInput placeholder="Prénom">
+                      <input ngModel name="prenom" matInput placeholder="Prénom">
                       <mat-hint></mat-hint>
                     </mat-form-field>
                   </div>
@@ -80,7 +80,7 @@
                   <div class="form-group col-md-6" >
                     <mat-form-field appearance="outline">
                       <mat-label>CIN</mat-label>
-                      <input matInput placeholder="CIN">
+                      <input ngModel name="cin" matInput placeholder="CIN">
                       <mat-hint></mat-hint>
                     </mat-form-field>
                   </div>
@@ -88,17 +88,18 @@
                   <div class="form-group col-md-6" >
                     <mat-form-field appearance="outline">
                       <mat-label>Date De Naissance</mat-label>
-                      <input matInput [matDatepicker]="picker" placeholder="Date De Naissance">
-                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <input matInput ngModel name="date_naissance" [matDatepicker]="picker" placeholder="Date De Naissance">
+                      <mat-datepicker-toggle startView="year" matSuffix [for]="picker"></mat-datepicker-toggle>
                       <mat-datepicker #picker></mat-datepicker>
+
                     </mat-form-field>
                   </div>
 
                   <div class="form-group col-md-6">
                     <mat-form-field appearance="outline">
-                      <mat-select placeholder="Sexe">
-                        <mat-option value="option">Homme</mat-option>
-                        <mat-option value="option">Femme</mat-option>
+                      <mat-select ngModel name="sexe" placeholder="Sexe">
+                        <mat-option value="Homme">Homme</mat-option>
+                        <mat-option value="Femme">Femme</mat-option>
                       </mat-select>
                       <mat-hint align="end">Hint</mat-hint>
                     </mat-form-field>
@@ -108,26 +109,26 @@
                   <div class="form-group col-md-6" >
                     <mat-form-field appearance="outline">
                       <mat-label>Fonction</mat-label>
-                      <input matInput placeholder="Fonction">
+                      <input ngModel name="fonction" matInput placeholder="Fonction">
                       <mat-hint>Hint</mat-hint>
                     </mat-form-field>
                   </div>
 
                     <div class="form-group col-md-6">
                       <mat-form-field appearance="outline">
-                        <mat-select placeholder="Nature">
-                          <mat-option value="option">Particulier</mat-option>
-                          <mat-option value="option">Entreprise</mat-option>
+                        <mat-select ngModel name="nature" placeholder="Nature">
+                          <mat-option value="Particulier">Particulier</mat-option>
+                          <mat-option value="Entreprise">Entreprise</mat-option>
                         </mat-select>
-                        <mat-hint align="end">Hint</mat-hint>
+                        <mat-hint align="end"></mat-hint>
                       </mat-form-field>
                     </div>
 
                   <div class="form-group col-md-6" >
                     <mat-form-field appearance="outline">
                       <mat-label>E-mail</mat-label>
-                      <input matInput placeholder="E-mail">
-                      <mat-hint>Hint</mat-hint>
+                      <input ngModel name="mail" matInput placeholder="E-mail">
+                      <mat-hint></mat-hint>
                     </mat-form-field>
                   </div>
 
@@ -135,7 +136,7 @@
                     <div class="form-group col-md-6" >
                       <mat-form-field appearance="outline">
                         <mat-label>Gouvernerat</mat-label>
-                        <input matInput placeholder="Gouvernerat">
+                        <input ngModel name="gouvernerat" matInput placeholder="Gouvernerat">
                         <mat-hint>Hint</mat-hint>
                       </mat-form-field>
                     </div>
@@ -143,30 +144,31 @@
                     <div class="form-group col-md-6" >
                       <mat-form-field appearance="outline">
                         <mat-label>Ville</mat-label>
-                        <input matInput placeholder="Ville">
-                        <mat-hint>Hint</mat-hint>
+                        <input ngModel name="ville" matInput placeholder="Ville">
+                        <mat-hint></mat-hint>
                       </mat-form-field>
                     </div>
 
                     <div class="form-group col-md-6" >
                       <mat-form-field appearance="outline">
                         <mat-label>Code Postale</mat-label>
-                        <input matInput placeholder="Code Postale">
-                        <mat-hint>Hint</mat-hint>
+                        <input ngModel name="code_postale" matInput placeholder="Code Postale">
+                        <mat-hint></mat-hint>
                       </mat-form-field>
                     </div>
 
                     <div class="form-group col-md-6" >
                       <mat-form-field appearance="outline">
                         <mat-label>Quartier</mat-label>
-                        <input matInput placeholder="Quartier">
-                        <mat-hint>Hint</mat-hint>
+                        <input ngModel name="quartier" matInput placeholder="Quartier">
+                        <mat-hint></mat-hint>
                       </mat-form-field>
                     </div>
 
 
                   </div>
                 </div>
+                  <button mat-raised-button color="warn" type="submit">Envoyer</button>
               </div>
             </form>
           </div>

@@ -1,3 +1,114 @@
-<p>
-  modifier-client works!
-</p>
+
+<form>
+  <div class="row mt-4" >
+
+
+    <div class="form-group col-md-6 " >
+      <mat-slide-toggle></mat-slide-toggle>
+      <mat-form-field  style="border-radius: 0px" appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input ngModel name="nom"  matInput placeholder="Nom">
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+
+
+    <div class="form-group col-md-4" >
+      <mat-form-field appearance="outline">
+        <mat-label>Prénom</mat-label>
+        <input ngModel name="prenom" matInput placeholder="Prénom">
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-6" >
+      <mat-form-field appearance="outline">
+        <mat-label>CIN</mat-label>
+        <input ngModel name="cin" matInput placeholder="CIN">
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-6" >
+      <mat-form-field appearance="outline">
+        <mat-label>Date De Naissance</mat-label>
+        <input matInput ngModel name="date-naissance" [matDatepicker]="picker" placeholder="Date De Naissance">
+        <mat-datepicker-toggle startView="year" matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-6">
+      <mat-form-field appearance="outline">
+        <mat-select ngModel name="sexe" placeholder="Sexe">
+          <mat-option value="Homme">Homme</mat-option>
+          <mat-option value="Femme">Femme</mat-option>
+        </mat-select>
+        <mat-hint align="end">Hint</mat-hint>
+      </mat-form-field>
+    </div>
+
+
+    <div class="form-group col-md-6" >
+      <mat-form-field appearance="outline">
+        <mat-label>Fonction</mat-label>
+        <input ngModel name="fonction" matInput placeholder="Fonction">
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-6">
+      <mat-form-field appearance="outline">
+        <mat-select ngModel name="nature" placeholder="Nature">
+          <mat-option value="Particulier">Particulier</mat-option>
+          <mat-option value="Entreprise">Entreprise</mat-option>
+        </mat-select>
+        <mat-hint align="end"></mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-6" >
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input ngModel name="mail" matInput placeholder="E-mail">
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+
+
+    <div class="form-group col-md-6" >
+      <mat-form-field appearance="outline">
+        <mat-label>Gouvernerat</mat-label>
+        <input ngModel name="gouvernerat" matInput placeholder="Gouvernerat">
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-6" >
+      <mat-form-field appearance="outline">
+        <mat-label>Ville</mat-label>
+        <input ngModel name="ville" matInput placeholder="Ville">
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-6" >
+      <mat-form-field appearance="outline">
+        <mat-label>Code Postale</mat-label>
+        <input ngModel name="code_postale" matInput placeholder="Code Postale">
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-6" >
+      <mat-form-field appearance="outline">
+        <mat-label>Quartier</mat-label>
+        <input ngModel name="quartier" matInput placeholder="Quartier">
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+</form>

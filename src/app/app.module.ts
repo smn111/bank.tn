@@ -16,9 +16,6 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthentificationService } from './service/authentification.service';
 import { ClientsService } from './services/clients.service';
-import { SupprimerclientComponent } from './gestion-client/supprimerclient/supprimerclient.component';
-import { DetailsclientComponent } from './gestion-client/detailsclient/detailsclient.component';
-import { ModifierClientComponent } from './gestion-client/modifier-client/modifier-client.component' ;
 
 
 @NgModule({
@@ -38,14 +35,11 @@ import { ModifierClientComponent } from './gestion-client/modifier-client/modifi
     AdminLayoutComponent,
     LoginComponent,
     LogoutComponent,
-    SupprimerclientComponent,
-    DetailsclientComponent,
-    ModifierClientComponent,
 
   ],
   providers: [AuthentificationService,ClientsService],
   bootstrap: [AppComponent],
-  entryComponents:[DetailsclientComponent,SupprimerclientComponent,ModifierClientComponent]
+
 
 })
 export class AppModule { }
