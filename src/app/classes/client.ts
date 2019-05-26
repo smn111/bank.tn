@@ -11,5 +11,7 @@ export class Client {
     dateInscription: Date ;
     nature: string ;
     sexe: string ;
+
+
 }
 

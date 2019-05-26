@@ -1,0 +1,17 @@
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+
+@Component({
+  selector: 'app-modifieremp',
+  templateUrl: './modifieremp.component.html',
+  styleUrls: ['./modifieremp.component.scss']
+})
+export class ModifierempComponent implements OnInit {
+
+  constructor(public dialogRef: MatDialogRef<ModifierempComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: number) { }
+
+  ngOnInit() {
+  }
+
+}

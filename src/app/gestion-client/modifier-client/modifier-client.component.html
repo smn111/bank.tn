@@ -1,47 +1,114 @@
 
-<form>
+<div class="col-12 p-0 m-0 " >
+  <h3 class="model-titre">Modifier les données de client</h3>
+</div>
+<form (ngSubmit)="modifier(form)" #form="ngForm">
   <div class="row mt-4" >
 
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="true"  (click)="activeNom()" >
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
 
-    <div class="form-group col-md-6 " >
-      <mat-slide-toggle></mat-slide-toggle>
-      <mat-form-field  style="border-radius: 0px" appearance="outline">
+    <div class="form-group col-md-5" >
+      <mat-form-field appearance="outline">
         <mat-label>Nom</mat-label>
-        <input ngModel name="nom"  matInput placeholder="Nom">
-        <mat-hint></mat-hint>
+        <input  ngModel name="nom" matInput placeholder="Nom" #Nom="ngModel" [disabled]="nomIsActive"
+                text required minlength="2">
+        <mat-hint *ngIf="!Nom.valid && Nom.touched">nom lazem akther men 2</mat-hint>
       </mat-form-field>
     </div>
 
 
-    <div class="form-group col-md-4" >
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activePrenom()">
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+
+    <div class="form-group col-md-5" >
       <mat-form-field appearance="outline">
         <mat-label>Prénom</mat-label>
-        <input ngModel name="prenom" matInput placeholder="Prénom">
-        <mat-hint></mat-hint>
+        <input ngModel name="prenom" matInput placeholder="Prénom" type="text"
+               #Prenom="ngModel" [disabled]="prenomIsActive" required minlength="2">
+        <mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>
       </mat-form-field>
     </div>
 
-    <div class="form-group col-md-6" >
+
+
+
+
+
+
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activeCin()" >
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+
+    <div class="form-group col-md-5" >
       <mat-form-field appearance="outline">
         <mat-label>CIN</mat-label>
-        <input ngModel name="cin" matInput placeholder="CIN">
-        <mat-hint></mat-hint>
+        <input ngModel name="cin" matInput placeholder="CIN" [disabled]="cinIsActive"
+               #Cin="ngModel" required minlength="8" maxlength="8" type="number">
+        <mat-hint *ngIf="!Cin.valid && Cin.touched"> bbbb</mat-hint>
       </mat-form-field>
     </div>
 
-    <div class="form-group col-md-6" >
+
+
+
+
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activeDate()">
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+
+    <div class="form-group col-md-5" >
       <mat-form-field appearance="outline">
         <mat-label>Date De Naissance</mat-label>
-        <input matInput ngModel name="date-naissance" [matDatepicker]="picker" placeholder="Date De Naissance">
-        <mat-datepicker-toggle startView="year" matSuffix [for]="picker"></mat-datepicker-toggle>
+        <input #Date="ngModel" matInput ngModel name="date_naissance"  [matDatepicker]="picker"
+               placeholder="Date De Naissance" [disabled]="datenaissIsActive" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-
+        <mat-hint *ngIf="!Date.valid && Date.touched"> bbbb</mat-hint>
       </mat-form-field>
     </div>
 
-    <div class="form-group col-md-6">
+
+
+
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activeSexe()">
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+
+    <div class="form-group col-md-5">
       <mat-form-field appearance="outline">
-        <mat-select ngModel name="sexe" placeholder="Sexe">
+        <mat-select ngModel name="sexe" placeholder="Sexe" [disabled]="sexeIsActive" required>
           <mat-option value="Homme">Homme</mat-option>
           <mat-option value="Femme">Femme</mat-option>
         </mat-select>
@@ -50,17 +117,46 @@
     </div>
 
 
-    <div class="form-group col-md-6" >
+
+
+
+
+
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activeFonction()">
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+    <div class="form-group col-md-5" >
       <mat-form-field appearance="outline">
         <mat-label>Fonction</mat-label>
-        <input ngModel name="fonction" matInput placeholder="Fonction">
+        <input ngModel name="fonction" matInput placeholder="Fonction" [disabled]="fonctionIsActive"
+               type="text" required minlength="2">
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
     </div>
 
-    <div class="form-group col-md-6">
+
+
+
+
+
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activeNature()">
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+    <div class="form-group col-md-5">
       <mat-form-field appearance="outline">
-        <mat-select ngModel name="nature" placeholder="Nature">
+        <mat-select ngModel name="nature" placeholder="Nature" [disabled]="natureIsActive" required>
           <mat-option value="Particulier">Particulier</mat-option>
           <mat-option value="Entreprise">Entreprise</mat-option>
         </mat-select>
@@ -68,47 +164,139 @@
       </mat-form-field>
     </div>
 
-    <div class="form-group col-md-6" >
+
+
+
+
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activeEmail()">
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+    <div class="form-group col-md-5" >
       <mat-form-field appearance="outline">
         <mat-label>E-mail</mat-label>
-        <input ngModel name="mail" matInput placeholder="E-mail">
+        <input ngModel name="mail" matInput placeholder="E-mail" [disabled]="emailIsActive" email required >
         <mat-hint></mat-hint>
       </mat-form-field>
     </div>
 
 
-    <div class="form-group col-md-6" >
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activeTel()" >
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+
+    <div class="form-group col-md-5" >
+      <mat-form-field appearance="outline">
+        <mat-label>Numéro du Téléphone</mat-label>
+        <input ngModel name="tel" matInput placeholder="Numéro du Téléphone" [disabled]="telIsActive"
+               required minlength="8" maxlength="8" type="number">
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+
+
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activeGouv()">
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+
+    <div class="form-group col-md-5" >
       <mat-form-field appearance="outline">
         <mat-label>Gouvernerat</mat-label>
-        <input ngModel name="gouvernerat" matInput placeholder="Gouvernerat">
+        <input ngModel name="gouvernerat" matInput placeholder="Gouvernerat" [disabled]="gouvIsActive" required minlength="2">
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
     </div>
 
-    <div class="form-group col-md-6" >
+
+
+
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activeVille()">
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+    <div class="form-group col-md-5" >
       <mat-form-field appearance="outline">
         <mat-label>Ville</mat-label>
-        <input ngModel name="ville" matInput placeholder="Ville">
+        <input ngModel name="ville" matInput placeholder="Ville" type="text" [disabled]="villeIsActive" required minlength="2">
         <mat-hint></mat-hint>
       </mat-form-field>
     </div>
 
-    <div class="form-group col-md-6" >
+
+
+
+
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activeCode()">
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+    <div class="form-group col-md-5" >
       <mat-form-field appearance="outline">
         <mat-label>Code Postale</mat-label>
-        <input ngModel name="code_postale" matInput placeholder="Code Postale">
+        <input ngModel name="code_postale" matInput placeholder="Code Postale" [disabled]="postalIsActive"
+               required type="number" max="4" >
         <mat-hint></mat-hint>
       </mat-form-field>
     </div>
 
-    <div class="form-group col-md-6" >
+
+
+
+    <div style="margin-right: -50px" class="col-md-1 mt-3 ml-4 form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" (click)="activeQuartier()">
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+
+    <div class="form-group col-md-5" >
       <mat-form-field appearance="outline">
         <mat-label>Quartier</mat-label>
-        <input ngModel name="quartier" matInput placeholder="Quartier">
+        <input ngModel name="quartier" matInput placeholder="Quartier" type="text" [disabled]="quartierIsActive" required minlength="2">
         <mat-hint></mat-hint>
       </mat-form-field>
     </div>
 
   </div>
 
+  <button mat-raised-button class="Btn-blue"  type="submit" [disabled]="!form.valid">Envoyer</button>
+
+
+
 </form>
+
+
+
+
+
+
+

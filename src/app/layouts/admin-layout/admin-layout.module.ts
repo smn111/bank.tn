@@ -14,6 +14,11 @@ import {AdminComponent} from '../../admin/admin.component';
 import { SupprimerclientComponent } from '../../gestion-client/supprimerclient/supprimerclient.component';
 import { DetailsclientComponent } from '../../gestion-client/detailsclient/detailsclient.component';
 import { ModifierClientComponent } from '../../gestion-client/modifier-client/modifier-client.component' ;
+import { AjouterempComponent } from '../../gestion-emp/ajouteremp/ajouteremp.component';
+import { ModifierempComponent } from '../../gestion-emp/modifieremp/modifieremp.component';
+import { SupprimerempComponent } from '../../gestion-emp/supprimeremp/supprimeremp.component';
+import { DetailsempComponent } from '../../gestion-emp/detailsemp/detailsemp.component';
+
 
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
@@ -23,6 +28,11 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
 import {MatDialogModule} from '@angular/material/dialog';
+
+
+
+import {MatCardModule} from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
 import {
   MatButtonModule,
   MatInputModule,
@@ -34,7 +44,8 @@ import {
   MatIconModule,
   MatNativeDateModule,
   MatDatepickerModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatCheckboxModule
 } from '@angular/material';
 @NgModule({
   imports: [
@@ -51,7 +62,10 @@ import {
     MatIconModule,
     MatDialogModule,
     MatDatepickerModule,MatNativeDateModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatCardModule
   ],
   declarations: [
     GestionClientComponent,
@@ -64,6 +78,10 @@ import {
     SupprimerclientComponent,
     DetailsclientComponent,
     ModifierClientComponent,
+    AjouterempComponent,
+    ModifierempComponent,
+    SupprimerempComponent,
+    DetailsempComponent,
 
 
     DashboardComponent,
@@ -73,7 +91,8 @@ import {
     NotificationsComponent,
     UpgradeComponent,
   ],
-    entryComponents:[DetailsclientComponent,SupprimerclientComponent,ModifierClientComponent]
+    entryComponents:[DetailsclientComponent,SupprimerclientComponent,ModifierClientComponent
+                    ,AjouterempComponent,ModifierempComponent,SupprimerempComponent,DetailsempComponent]
 })
 
 export class AdminLayoutModule {}

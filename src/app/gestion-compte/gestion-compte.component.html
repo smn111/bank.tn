@@ -1,66 +1,38 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-10 offset-1" >
+      <div class="col-md-12" >
         <div class="card">
 
-          <div class="card-header card-header-danger">
+          <div class="card-header card-header-primary">
             <h4 class="card-title">Ajouter Nouvelle Compte</h4>
+            <br>
           </div>
           <div class="card-body">
             <form (ngSubmit)="onSubmit(form)" #form="ngForm">
 
-              <div class="container" >
-                <div class="row">
-
-                  <p class="card-category col-md-12">Informations de client</p>
-
-                  <div class="form-group">
-                    <label class="ml-3 mr-3">S'agit ils d'un nouveau client ?</label>
-                    <div  class="btn-group" role="group" aria-label="Basic example" >
-                      <button name="client-exist" type="button" class="btn btn-danger"  (click)="exist()">Oui</button>
-                      <button name="client-exist" type="button" class="btn btn-secondary" (click)="notExist()">Non</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Informations compte -->
-                <div class="card pr-4 pl-4 mb-4" >
-                  <div class="card-header card-header-primary">
-                    <h4 class="card-title">Compte</h4>
-                  </div>
-
-                  <div class="card-body row mt-4" >
-
-                    <div class="form-group col-md-6">
-                      <mat-form-field  appearance="outline">
-                        <mat-select ngModel name="type_compte" placeholder="Type de compte">
-                          <mat-option value=1>Courant</mat-option>
-                          <mat-option value=0>Epargne</mat-option>
-                        </mat-select>
-                        <mat-hint align="end"></mat-hint>
-                      </mat-form-field>
-                    </div>
-
-                    <div class="form-group col-md-6" >
-                      <mat-form-field appearance="outline">
-                        <mat-label>Solde initial</mat-label>
-                        <input ngModel name="solde" matInput placeholder="Nature" type="number">
-                        <mat-hint></mat-hint>
-                      </mat-form-field>
-                    </div>
-                  </div>
-                </div>
-
                 <!-- Informatiosn client -->
-                <div class="card pr-4 pl-4 mb-4" *ngIf="!client_exist">
-                  <div class="card-header card-header-danger">
+                <div class="card pr-4 pl-4 mt-5" style="padding-bottom: 35px ;margin-bottom: 80px">
+
+                  <div class="card-header card-header-primary">
                     <h4 class="card-title">Client</h4>
                   </div>
 
-                  <div class="card-body row mt-4" >
+                  <div class="row mt-5" >
+                      <label class="nv-client ml-5 mr-3 mt-2">S'agit ils d'un nouveau client ?</label>
+                      <mat-button-toggle-group >
+                        <mat-button-toggle class="nv-btn" (click)="notExist()" >
+                          Oui
+                        </mat-button-toggle>
+                        <mat-button-toggle class="nv-btn" (click)="exist()">
+                          Non
+                        </mat-button-toggle>
+                      </mat-button-toggle-group>
+                  </div>
 
-                  <div class="form-group col-md-6" >
+                  <div class="card-body row "  *ngIf="!client_exist">
+
+                  <div class="form-group col-md-6"  >
                     <mat-form-field  style="border-radius: 0px" appearance="outline">
                       <mat-label>Nom</mat-label>
                       <input ngModel name="nom"  matInput placeholder="Nom">
@@ -167,8 +139,73 @@
 
 
                   </div>
+
+                  <div class="card-body row "  *ngIf="client_exist">
+
+                    <div class="form-group col-md-10" >
+                      <mat-form-field appearance="outline">
+                        <mat-label>Identifiant de Client </mat-label>
+                        <input [(ngModel)]="ExistClientID" name="id" matInput placeholder="id">
+                        <mat-hint></mat-hint>
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-md-2" >
+                      <div class="col-md-10">
+                        <a  style="width: 100%" mat-raised-button class="Btn-blue"  (click)="getExistClient()">
+                          Vérifier
+                        </a>
+                      </div>
+                      <div *ngIf="ExistClientCompte" class="col-md-10">
+                        <button mat-raised-button class="Btn-details" type="button" data-toggle="collapse" data-target="#ClientExist" aria-expanded="false" aria-controls="collapseExample">
+                          <i class="material-icons icon-blue" >
+                            subject
+                          </i>
+                          Détails
+                      </button>
+                      </div>
+                    </div>
+
+                    <div *ngIf="ExistClientCompte" class="collapse" id="ClientExist">
+                      <div class="card card-body">
+                        details
+                      </div>
+                    </div>
+
+
+                  </div>
+
+
                 </div>
-                  <button mat-raised-button color="warn" type="submit">Envoyer</button>
+              <div class="card pr-4 pl-4 mb-5" >
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Compte</h4>
+                </div>
+
+                <div class="card-body row mt-4" >
+
+                  <div class="form-group col-md-6">
+                    <mat-form-field  appearance="outline">
+                      <mat-select ngModel name="type_compte" placeholder="Type de compte">
+                        <mat-option value=1 *ngIf="!CourantExist">Courant</mat-option>
+                        <mat-option value=0 *ngIf="!EpargneExist">Epargne</mat-option>
+                      </mat-select>
+                      <mat-hint align="end"></mat-hint>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group col-md-6" >
+                    <mat-form-field appearance="outline">
+                      <mat-label>Solde initial</mat-label>
+                      <input ngModel name="solde" matInput placeholder="Nature" type="number">
+                      <mat-hint></mat-hint>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body row" >
+                  <button style="padding-bottom: 5px;margin-top: -20px" mat-raised-button class="Btn-blue" type="submit">Envoyer</button>
               </div>
             </form>
           </div>

@@ -16,6 +16,9 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthentificationService } from './service/authentification.service';
 import { ClientsService } from './services/clients.service';
+import { OprationService } from './services/opration.service';
+
+
 
 
 @NgModule({
@@ -36,8 +39,9 @@ import { ClientsService } from './services/clients.service';
     LoginComponent,
     LogoutComponent,
 
+
   ],
-  providers: [AuthentificationService,ClientsService],
+  providers: [AuthentificationService,ClientsService,OprationService],
   bootstrap: [AppComponent],
 
 
